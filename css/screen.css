@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+html,body,.lbt,.slider-list{
+    width:100%;
+    height:100%;
+    
+} 
+/* 若不对slider-list设置宽高100%,直接设置slider100% 100% ,由内容撑开宽度*/
+.lbt .slider-list{
+    position:relative;
+}
+.slider-list .slider{
+    width:100%;
+    height:100%;
+
+    box-sizing:border-box; 
+    padding:200px;
+    /* 按照ie6混杂模型来解析盒子模型,盒子宽度包括了boderr和padding */
+    /*  内容被挤到中间*/ 
+    background-repeat: no-repeat;
+    background-size:cover;
+    /* 调整尺寸,让背景图片铺满背景 */
+    background-position: center;
+    /* 背景图片从中间显示 */
+   
+}
+/* :nth-of-type(),css3
+属性,伪类选择器,找兄弟节点的第几个,从1开始,1,第一个 */
+.slider:nth-of-type(1){
+    background-image:url(../images/bg-1.jpg);
+    /* display:none; */
+}
+.slider:nth-of-type(2){
+    background-image:url(../images/bg-2.jpg);
+    display:none;
+}
+.slider:nth-of-type(3){
+    background-image:url(../images/bg-3.jpg);
+    display:none;
+}
+.slider .slider-content{
+    float:left;
+    width:40%;
+    color:white;
+}
+.slider .slider-content p{
+    margin-top:20px;
+    width:100%;
+    /* 多行打点------下面四行在一起使用 */
+    overflow:hidden;
+    display:-webkit-box;
+    -webkit-line-clamp: 3;/* 超出3行打点   */
+    -webkit-box-orient: vertical;
+}
+.slider:nth-of-type(1) .slider-image{
+    float: right;
+    width: 40%;
+}
+.slider:nth-of-type(2) .slider-image{
+    float: right;
+    width: 0%;
+}
+.slider:nth-of-type(3) .slider-image{
+    float: right;
+    width: 0%;
+}
+.slider .slider-image img{
+    width:100%;
+    height:100%;
+
+}
+.slider-btn{
+    position:absolute;
+    width:100%;
+    top:50%;
+    height:40px;
+    margin-top:-20px;
+}
+.slider-btn .pre-btn{
+    position:absolute;
+    width:28px;
+    height:40px;
+    display:block;
+    left:50px;
+    background-image:url(../images/left-btn.png);
+}
+.slider-btn .next-btn{
+    position:absolute;
+    width:28px;
+    height:40px;
+    display:block;
+   right:50px;
+   background-image:url(../images/right-btn.png);
+}
+.slider-point{
+    position:absolute;
+    left:0;
+    bottom:100px;
+    width:100%;
+    height:40px;
+}
+.slider-point ul{
+    position:absolute;
+    left:50%;
+    display:inline-block;
+    /* 不知道宽度的情况下,平移自身一半宽度---等价于-margin-left:-width/2; */
+    transform: translate(-50%);
+}
+.slider-point ul li{
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background-color:grey;
+    display:inline-block;
+    /* 变成行级块元素,从左到右排列 */
+    margin-right:20px;
+    /* 这样做右边也会有20px */
+}
+.slider-point ul li.active{
+    background-color:white;
+}
+.slider-point ul li:nth-of-type(3){
+    margin-right:0;
+}
+
+
